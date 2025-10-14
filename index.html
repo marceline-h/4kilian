@@ -12,20 +12,15 @@ body {
 
   /* Image de fond ASCII */
   background-image: url("infinity2.jpg"); /* remplace par le nom exact de ton fichier */
-  background-size: cover;        
-  background-position: center;   
+  background-size: cover;        /* couvre tout l’écran */
+  background-position: center;   /* centre l’image */
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  /* Désaturer l’image et baisser légèrement la luminosité */
-  filter: grayscale(100%) brightness(85%);
+  /* Désaturer l’image et baisser légèrement la luminosité pour contraste */
+  filter: grayscale(100%) brightness(60%);
 
-  color: #000;                  
-}
-
-/* Supprimer le gras du titre */
-h1 {
-  font-weight: normal;
+  color: #000;                  /* texte en noir */
 }
 
 /* Pseudo-élément vide pour ne pas ajouter de voile */
@@ -45,19 +40,18 @@ button {
   display: block;
   cursor: pointer;
   border: none;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.7); /* bouton semi-transparent */
   border-radius: 8px;
 }
 
 #poem {
   white-space: pre-line;
-  margin-top: 1em; /* poème un peu plus haut */
+  margin-top: 2em;
   font-size: 1.1em;
-  padding-top: 0.5em;
+  padding-top: 1em;
   min-height: 10em;
 
-  color: #000; 
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.7); /* contraste léger sur ASCII */
+  color: #000; /* texte noir */
   border: none;
   background: none;
 }
@@ -69,6 +63,7 @@ button {
 <div id="poem">cliquez sur le bouton pour générer un poème...</div>
 
 <script>
+// même JavaScript que le tien (inchangé)
 const wikiPages = [
   { lang: 'fr', title: 'Fête foraine' },
   { lang: 'en', title: 'Traveling carnival' }
@@ -141,7 +136,7 @@ async function generatePoem() {
   }
   allFragments = filterProperNouns(allFragments);
   let poem = '';
-  let lineCount = Math.floor(Math.random() * 4) + 6; // 6 à 9 lignes max
+  let lineCount = Math.floor(Math.random() * 5) + 6;
 
   for (let i = 0; i < lineCount; i++) {
     if (allFragments.length === 0) break;
