@@ -8,22 +8,28 @@ body {
   font-family: "Helvetica", sans-serif;
   max-width: 800px;
   margin: 2em auto;
-  background-image: url("infinity.jpg"); /* 🔹 ton image ici */
-  background-size: cover;                 /* couvre tout l’écran */
-  background-position: center;            /* centrée */
-  background-repeat: no-repeat;           /* pas de répétition */
-  background-attachment: fixed;           /* effet de fond fixe */
-  color: #222;
   padding: 1em;
-  backdrop-filter: brightness(0.9);       /* optionnel pour lisibilité */
+
+  /* Image de fond ASCII */
+  background-image: url("infinity.jpg"); /* remplace par le nom exact de ton fichier */
+  background-size: cover;        /* couvre tout l’écran */
+  background-position: center;   /* centre l’image */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* Désaturer l’image et baisser légèrement la luminosité pour contraste */
+  filter: grayscale(100%) brightness(85%);
+
+  color: #000;                  /* texte en noir */
 }
 
-/* Pour un effet lisible sur fond clair ou sombre */
+/* Pseudo-élément vide pour ne pas ajouter de voile */
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: -1;
+  background: none;
 }
 
 button {
@@ -34,7 +40,7 @@ button {
   display: block;
   cursor: pointer;
   border: none;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.7); /* bouton semi-transparent */
   border-radius: 8px;
 }
 
@@ -44,14 +50,15 @@ button {
   font-size: 1.1em;
   padding-top: 1em;
   min-height: 10em;
-  color: #000; /* 🔹 blanc pour bien ressortir sur l’image */
-  border: none; /* 🔹 plus de trait */
-  background: none; /* 🔹 plus de fond gris */
+
+  color: #000; /* texte noir */
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.7); /* contraste sur l’ASCII */
+  border: none;
+  background: none;
 }
 </style>
 </head>
 <body>
-
 <h1>4 kilian</h1>
 <button id="generate" onclick="generatePoem()">créer un poème</button>
 <div id="poem">cliquez sur le bouton pour générer un poème...</div>
