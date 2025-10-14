@@ -9,16 +9,24 @@ body {
   max-width: 800px;
   margin: 1em auto;
   padding: 1em;
+  color: #000;
+  position: relative; /* nécessaire pour ::before */
+}
 
-  /* Image de fond ASCII */
-  background-image: url("infinity2.jpg"); /* remplace par le nom exact de ton fichier */
-  background-size: cover;        /* couvre tout l’écran */
-  background-position: center;   /* centre l’image */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+
+  background-image: url("infinity2.jpg"); /* ton image de fond */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  /* Désaturer l’image et baisser légèrement la luminosité pour contraste */
-  filter: grayscale(100%) brightness(160%);
+  filter: brightness(160%); /* augmente la luminosité uniquement du fond */
+}
 
   color: #000;                  /* texte en noir */
 }
