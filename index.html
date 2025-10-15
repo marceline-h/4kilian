@@ -25,23 +25,11 @@ body::before {
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  filter: brightness(50%); /* augmente la luminosité uniquement du fond */
+  filter: brightness(160%); /* augmente la luminosité uniquement du fond */
 }
 
-  color: #000;                  /* texte en noir */
-}
-  
 h1 {
   font-weight: normal;
-}
-
-/* Pseudo-élément vide pour ne pas ajouter de voile */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -1;
-  background: none;
 }
 
 button {
@@ -62,7 +50,6 @@ button {
   font-size: 1.1em;
   padding-top: 0.5em;
   min-height: 10em;
-
   color: #000; /* texte noir */
   border: none;
   background: none;
@@ -148,7 +135,7 @@ async function generatePoem() {
   }
   allFragments = filterProperNouns(allFragments);
   let poem = '';
-  let lineCount = Math.floor(Math.random() * 5) + 6;
+  let lineCount = Math.floor(Math.random() * 4) + 6; // 6 à 9 lignes max
 
   for (let i = 0; i < lineCount; i++) {
     if (allFragments.length === 0) break;
